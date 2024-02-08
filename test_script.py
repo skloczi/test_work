@@ -15,7 +15,7 @@ from scipy.signal import chirp, tukey
 fs = 1+0 * 10**6  # sampling frequency, Hz
 alpha = 0.5  # Tukey window parameter (0 for rectangular window, 1 for Hann window)
 
-tappering_probe_signal = "yes" # "yes" or "no"
+tappering_probe_signal = "no" # "yes" or "no"
 
 dur_pump = 11 * 10**-3  # seconds
 f0_pump = 10 * 10**3  # start frequency, Hz
@@ -54,7 +54,7 @@ fig, axs = plt.subplots(2,1, figsize = (10, 5))
 
 #pump
 ax = axs[0]
-ax.plot(t_pump, signal_pump)
+ax.plot(t_pump, signal_pump, color = 'red')
 ax.set_title('Linear Chirp Signal - Pump')
 ax.set_xlabel('Time (s)')
 ax.set_ylabel('Amplitude')
@@ -63,10 +63,10 @@ ax.grid(True)
 
 #probe
 ax = axs[1]
-ax.plot(t_probe, signal_probe, color = 'orange')
+ax.plot(t_probe, signal_probe, color = 'blue')
 ax.set_title('Linear Chirp Signal - Probe')
 ax.set_xlabel('Time (s)')
-ax.set_ylabel('Amplitude')
+ax.set_ylabel('Amplitude', fontsize = 24)
 ax.grid(True)
 
 fig.tight_layout()
